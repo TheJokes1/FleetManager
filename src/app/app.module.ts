@@ -66,7 +66,7 @@ import { ReportedDamageDialogComponent } from './common/dialogs/reported-damage-
     AddVehicleDialogComponent,
     CustomDialogComponent,
     ExtrasComponent,
-    ReportedDamageDialogComponent,
+    ReportedDamageDialogComponent
   ],
   imports: [
     BrowserModule,

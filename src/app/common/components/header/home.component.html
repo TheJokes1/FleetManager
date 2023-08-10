@@ -1,3 +1,16 @@
 <h1> FLEETMANAGER HOME</h1>
 
 <button mat-button color="primary" class="login" (click)="login()">Login</button>
+
+
+<ng-container *ngFor="let ant of lyrics">
+    <div class="container">
+        <div> {{ ant.lyricId }} - {{ ant.words}} </div>
+        <img [src] = [ant.imageUrl]>
+        <br/>
+        <br>
+        <div class="spotify-cont">
+            <app-audio-player id="preview" class="spotify" [src]="ant.previewLink" #audioPlayer></app-audio-player>
+        </div>
+    </div>
+</ng-container>

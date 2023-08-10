@@ -4,6 +4,7 @@ import { Vehicle } from 'src/app/common/models/MainClasses/Vehicle';
 import { VehicleType } from 'src/app/common/models/MainClasses/VehicleType';
 import { VehicleDisplayDTO } from 'src/app/common/models/DTOs/VehicleDisplayDTO';
 import { Constants } from 'src/app/common/models/interfaces/Constants';
+import { Lyric } from 'src/app/common/models/interfaces/lyric';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class VehicleService {
 
   private baseUrlRead: string = Constants.baseUrlRead;
   private baseUrlWrite: string = Constants.baseUrlWrite;
+
+  baseUrl: string = `https://lyricslover.azurewebsites.net/api/`;
   
   constructor(private https: HttpClient) { }
 
@@ -49,5 +52,14 @@ export class VehicleService {
   getDriverVehicle = (vehicleId: number) => {
     return this.https.get<any>(this.baseUrlRead + 'vehicle/driver/' + vehicleId);
   }
-}
   
+  GetLyrics = (language: string, era: string, text: string) => {
+    //console.log("API: language: " + language + " era: " + era + "" 
+    // + " text: " + text);
+    text = text.trim();
+    text = "%20" + text + "%20";
+    return this.https.get<Lyric[]>(
+      this.baseUrl + `lyrics?language=${language}&releaseDate=${era}&SearchQueryTitle=${text}`
+      )
+    }
+  }
