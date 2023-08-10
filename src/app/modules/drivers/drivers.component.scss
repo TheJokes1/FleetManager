@@ -1,0 +1,82 @@
+.data-container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+  }
+  
+  .table-heading {
+    font-size: 24px;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .fleetData {
+    width: 100%;
+    //border-collapse: collapse;
+  }
+  
+  .fleetData th,
+  .fleetData td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    color: black;
+  }
+  
+  .fleetData th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .fleetData tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .fleetData tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  .fleetData td button {
+    padding: 6px 12px;
+    background-color: rgb(2, 128, 2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .fleetData td button.warning { 
+    background-color: #af4c4c; 
+
+  }
+
+  .fleetData td button.warning:hover {
+    background-color: #e26060; 
+
+  }
+  
+  .fleetData td button:hover {
+    background-color: #04bb0d;
+  }
+
+  .addButton{
+    margin-top: 1em;
+    border: #af4c4c;
+  }
+
+  .paginator{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: rgb(61, 66, 60);
+    color: 4CAF50
+  }
+  
+  th span {
+    display: flex;
+    flex-direction: column;
+  }

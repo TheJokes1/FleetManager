@@ -1,0 +1,67 @@
+<header>
+  <div class="table-heading">
+    <h2>
+      <a (click)="goBack()" style="cursor: pointer;">
+        <mat-icon class="back-arrow">arrow_back</mat-icon>
+      </a>
+      {{title}} {{vehicleId}}
+    </h2>
+  </div>
+</header>
+  
+  <div class="maintenanceForm">
+    <form [formGroup]="maintenanceForm" (ngSubmit)="onSubmit()">
+      <div class="form-fields">
+        <div class="column">
+          <div class="form-field">
+            <mat-form-field>
+              <mat-label> {{ vehicleName }}</mat-label>
+              <input matInput  formControlName="vehicle">
+            </mat-form-field>
+          </div>
+  
+          <div class="form-field">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year"></mat-datepicker>
+              <mat-label>Date</mat-label>
+              <mat-error *ngIf="maintenanceForm.controls['date'].hasError('required')">Date is required.</mat-error>
+              <mat-error *ngIf="maintenanceForm.controls['cost'].hasError('pattern')">Invalid cost value.</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="form-field">
+            <mat-form-field>
+              <mat-label>Cost</mat-label>
+              <input matInput formControlName="cost">
+              <mat-error *ngIf="maintenanceForm.controls['cost'].hasError('required')">Cost is required.</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="form-field">
+            <mat-form-field>
+              <mat-label>Garage</mat-label>
+              <input matInput formControlName="garage">
+              <mat-error *ngIf="maintenanceForm.controls['garage'].hasError('required')">Garage is required.</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="form-field">
+            <mat-form-field>
+              <mat-label>Works Performed</mat-label>
+              <input matInput formControlName="worksPerformed">
+              <mat-error *ngIf="maintenanceForm.controls['worksPerformed'].hasError('required')">Works Performed is required.</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="form-field">
+            <mat-label>Add File</mat-label><br/>
+            <input type="file" (change)="onFileSelected($event)" formControlName="filePath">
+          </div>
+          <button mat-button (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

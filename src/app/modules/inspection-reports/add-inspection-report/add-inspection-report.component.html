@@ -1,0 +1,54 @@
+<header>
+    <div class="table-heading">
+      <h2>
+        <a (click)="goBack()" style="cursor: pointer;">
+          <mat-icon class="back-arrow">arrow_back</mat-icon>
+        </a>
+        {{ title }} {{ licensePlate }} ({{ driverName }})
+      </h2>
+    </div>
+  </header>
+  
+  <div class="inspectionForm">
+    <form [formGroup]="inspectionReportForm" (ngSubmit)="onSubmit()">
+      <div class="form-fields">
+        <div class="column">
+  
+          <div class="form-field">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year"></mat-datepicker>
+              <mat-label>Date</mat-label>
+              <mat-error *ngIf="inspectionReportForm.get('date')?.hasError('required')">Date is required.</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="form-field">
+            <mat-form-field>
+              <mat-label>Total Cost</mat-label>
+              <input matInput formControlName="totalCost">
+            </mat-form-field>
+          </div>
+  
+          <div class="form-field">
+            <mat-form-field>
+              <mat-label>Driver Present</mat-label>
+              <mat-select formControlName="driverWasPresent">
+                <mat-option [value]="true">Yes</mat-option>
+                <mat-option [value]="false">No</mat-option>
+              </mat-select>
+              </mat-form-field>
+          </div>
+
+          <div class="form-field">
+            <mat-label>Inspectieverslag</mat-label><br/>
+            <input type="file" (change)="onFileChange($event)" formControlName="filePath">
+          </div>
+  
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,22 @@
+<header>
+  <div class="branding">
+    <a class="fleet-manager" routerLink="/">FLEETMANAGER</a>
+    <img class="logo" src="assets/logo_allphi.PNG" alt="Logo">
+  </div>
+  <div class="menu">
+    <ul>
+      <li><a routerLink="/vehicles" routerLinkActive="active">Vehicles</a></li>
+      <li><a routerLink="/drivers" routerLinkActive="active">Drivers</a></li>
+      <li class="dropdown">
+        <a>Extras</a>
+        <div class="dropdown-content">
+          <a [routerLink]="['/extras', 'fuelcardextra']">Fuel Card Extras</a>
+          <a [routerLink]="['/extras', 'vehicletype']">Vehicle Types</a>
+          <a [routerLink]="['/extras', 'requesttype']">Request Types</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>
+  
+  
